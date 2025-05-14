@@ -6,6 +6,146 @@
     <title>Document</title>
   </head>
   <body>
-    <script src="index.js"></script>
+    <aside>
+      <div class="search-bar">
+        <form>
+          <label for="search">Type your location:</label>
+          <div>
+            <input type="text" id="search" />
+            <button type="submit">Search</button>
+          </div>
+        </form>
+      </div>
+    </aside>
+    <main>
+      <div class="top-left main-box">
+        <div class="location">
+          <h2 id="currentDate">26/03 - Quarta-feira</h2>
+          <h2 id="location">São Bento do Sul, SC - Brasil</h2>
+        </div>
+        <div class="top-left-grid">
+          <div class="top-left-first-box">
+            <div class="weather-main-icon">
+              <img
+                src="amcharts_weather_icons_1.0.0/animated/cloudy-day-1.svg"
+                alt="Weather icon"
+              />
+            </div>
+            <div class="temps">
+              <div class="temp">
+                <h1 id="currTemp">23</h1>
+                <h4>ºF</h4>
+              </div>
+              <div>
+                <p>Min. <span id="minTemp">23</span> ºF</p>
+                <p>Max <span id="maxTemp">23</span> ºF</p>
+              </div>
+            </div>
+            <div class="weather-description" id="weatherDescription">
+              <p>
+                Similar temperatures continuing with a chance of rain Sunday &
+                Monday.
+              </p>
+            </div>
+          </div>
+          <div class="top-left-second-box">
+            <div>
+              <p>UTC−05:00</p>
+              <h1 id="currentTime">14:35</h1>
+            </div>
+            <div id="rain-graph">
+              <canvas></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-left main-box">
+        <p>Previsão para os próximos dias</p>
+        <div class="bottom-left-grid">
+          <div class="bottom-left-day-forecast">
+            <p>12/03</p>
+            <img src="amcharts_weather_icons_1.0.0/static/rainy-1.svg" alt="" />
+            <p>26º</p>
+          </div>
+          <div class="bottom-left-day-forecast">
+            <p>12/03</p>
+            <img
+              src="amcharts_weather_icons_1.0.0/static/cloudy-day-3.svg"
+              alt=""
+            />
+            <p>26º</p>
+          </div>
+          <div class="bottom-left-day-forecast">
+            <p>12/03</p>
+            <img src="amcharts_weather_icons_1.0.0/static/rainy-7.svg" alt="" />
+            <p>26º</p>
+          </div>
+          <div class="bottom-left-day-forecast">
+            <p>12/03</p>
+            <img src="amcharts_weather_icons_1.0.0/static/rainy-1.svg" alt="" />
+            <p>26º</p>
+          </div>
+          <div class="bottom-left-day-forecast">
+            <p>12/03</p>
+            <img
+              src="amcharts_weather_icons_1.0.0/static/cloudy-day-3.svg"
+              alt=""
+            />
+            <p>26º</p>
+          </div>
+        </div>
+      </div>
+      <div class="right main-box">
+        <h3>Data</h3>
+        <table id="infoTable">
+          <tr>
+            <td>Feels like</td>
+            <td data-info="feelslike">0</td>
+          </tr>
+          <tr>
+            <td>Humidity</td>
+            <td data-info="humidity">0</td>
+          </tr>
+          <tr>
+            <td>Dew</td>
+            <td data-info="dew">0</td>
+          </tr>
+          <tr>
+            <td>Precip</td>
+            <td data-info="precip">0</td>
+          </tr>
+          <tr>
+            <td>Precip Probability</td>
+            <td data-info="precipprob">0</td>
+          </tr>
+          <tr>
+            <td>Wind Speed</td>
+            <td data-info="windspeed">0</td>
+          </tr>
+          <tr>
+            <td>Pressure</td>
+            <td data-info="pressure">0</td>
+          </tr>
+          <tr>
+            <td>Solar Energy</td>
+            <td data-info="solarnergy">0</td>
+          </tr>
+          <tr>
+            <td>UV Index</td>
+            <td data-info="uvindex">0</td>
+          </tr>
+          <tr>
+            <td>Sunrise</td>
+            <td data-info="sunrise">0</td>
+          </tr>
+          <tr>
+            <td>Sunset</td>
+            <td data-info="sunset">0</td>
+          </tr>
+        </table>
+      </div>
+    </main>
+
+    <script src="index.js" type="module"></script>
   </body>
 </html>

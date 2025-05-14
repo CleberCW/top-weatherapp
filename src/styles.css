@@ -1,4 +1,278 @@
-/* styles.css */
+/*Reset Josh Comeau */
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
 body {
-  background-color: rebeccapurple;
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Color palette */
+
+:root {
+  --dark-orange: #ff6f20;
+  --dark-blue: #0072b8;
+  --yellow: #ffd700;
+  --light-orange: #ff9a00;
+  --light-blue: #a3d5e0;
+}
+
+/* styles.css */
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+aside {
+  grid-column: 0 / 1;
+  background-color: var(--dark-blue);
+  height: 100vh;
+}
+
+.search-bar {
+  margin: 20px;
+  color: white;
+  border: none;
+}
+
+.search-bar div {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 10px;
+}
+
+.search-bar input {
+  box-sizing: content-box;
+}
+
+.search-bar button {
+  grid-column: 2 / 3;
+  border: none;
+  width: 80px;
+  background-color: var(--dark-orange);
+  color: white;
+  border-radius: 5px;
+}
+
+main {
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  gap: 30px;
+  padding: 30px;
+  height: 100vh;
+}
+
+.top-left {
+  grid-area: 1 / 1 / 2 / 2;
+  height: 100%;
+  font-size: clamp(14px, 1vw, 32px);
+}
+
+.top-left-first-box {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.top-left-first-box div:last-of-type {
+  margin-left: 10px;
+}
+
+.weather-main-icon {
+  grid-column: 1 / 2;
+  max-width: 250px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.weather-main-icon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 30%;
+}
+
+.temps {
+  grid-column: 2 / 3;
+  align-items: center;
+}
+
+.temps > div {
+  display: flex;
+  align-items: center;
+  font-size: 1.4em;
+}
+
+.temps div:last-of-type {
+  display: flex;
+  gap: 10px;
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.location {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-description {
+  font-size: clamp(0.4em, 2vw, 0.9em);
+}
+
+.top-left-second-box {
+  font-size: 1em;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: 0 15px;
+  align-items: center;
+  height: 100%;
+  max-height: 250px;
+}
+
+.bottom-left {
+  grid-area: 2 / 1 / 2 / 1;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 15px;
+}
+
+#rain-graph {
+  width: 100%;
+  height: 250px;
+}
+
+.right {
+  grid-area: 1 / 2 / 3 / 3;
+}
+
+.bottom-left-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.bottom-left-day-forecast {
+  font-size: 1.2em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.bottom-left-day-forecast img {
+  min-width: 100px;
+}
+
+.bottom-left-day-forecast p {
+  margin-bottom: -5px;
+}
+
+.bottom-left-day-forecast p:last-of-type {
+  margin-top: -5px;
+}
+
+.main-box {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.hero {
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 4px 1px rgb(230, 230, 230);
+}
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+.right h3 {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}
+
+table tr:nth-child(even) {
+  background-color: #fafafa;
 }

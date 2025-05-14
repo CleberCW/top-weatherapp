@@ -1,17 +1,22 @@
 import "./styles.css";
-import { greeting } from "./greeting.js";
+import { retrieveWeatherData, weatherParser } from "./api.js";
+import { renderData } from "./ui.js";
+import info from "./data.json";
 
-console.log(greeting);
+renderData(weatherParser(info));
 
-import odinImage from "./odin.png";
+document.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const input = document.querySelector("#search");
+  try {
+    revenant(input.value);
+  } catch (e) {
+    console.log(`An error occurred: ${e}`);
+  }
+});
 
-const image = document.createElement("img");
-image.src = odinImage;
-
-document.body.appendChild(image);
-
-const copyright = document.createElement("p");
-copyright.textContent =
-  "odin PNG Designed By  from https://pt.pngtree.com/freepng/odin-clipart-viking-mascot-isolated-on-white-cartoon-vector_11076003.html?sol=downref&id=bef";
-
-document.body.appendChild(copyright);
+async function revenant(input) {
+  const data = await retrieveWeatherData(input);
+  const parsedData = weatherParser(data);
+  renderData(parsedData);
+}
